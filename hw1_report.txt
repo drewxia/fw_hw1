@@ -1,0 +1,46 @@
+Andrew Xia
+Homework 01
+
+/////////////////////////////////////////////////////////////////////////
+// Contents of objdump:
+/////////////////////////////////////////////////////////////////////////
+hw01_O3.o:     file format elf32-littlearm
+
+Disassembly of section .text.startup:
+
+00000000 <main>:
+   0:	4a06      	ldr	r2, [pc, #24]	; (1c <main+0x1c>)
+   2:	21ff      	movs	r1, #255	; 0xff
+   4:	4b06      	ldr	r3, [pc, #24]	; (20 <main+0x20>)
+   6:	7011      	strb	r1, [r2, #0]
+   8:	781a      	ldrb	r2, [r3, #0]
+   a:	f042 0202 	orr.w	r2, r2, #2
+   e:	701a      	strb	r2, [r3, #0]
+  10:	781a      	ldrb	r2, [r3, #0]
+  12:	f002 02fd 	and.w	r2, r2, #253	; 0xfd
+  16:	701a      	strb	r2, [r3, #0]
+  18:	e7f6      	b.n	8 <main+0x8>
+  1a:	bf00      	nop
+  1c:	2009c001 	.word	0x2009c001
+  20:	2009c015 	.word	0x2009c015
+
+Not finished yet.  I will need to spend more time to decode it into machine 
+code before deciphering...
+
+
+/////////////////////////////////////////////////////////////////////////
+// Measurement of GPIO
+/////////////////////////////////////////////////////////////////////////
+I monitored the waveform the GPIO pin5, and it was toggling at 9.6Mhz, or 
+104ns for the period of the cycle, thus it took about 52ns for instruction 
+to execute.
+
+
+Hours spent:  18 hours
+- 4 hours reading designated chapters
+- 4 hours on coding with mbed online compiler in windows
+- 5 hours in setting up ubuntu environment and learning to linux commands
+- 5 hours on trying to get it to compile and objdump properly
+- 1 hour trying to decipher machine code
+
+
